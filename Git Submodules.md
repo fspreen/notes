@@ -7,7 +7,7 @@ a handy reference since I'm using them for Vim plugins in my dotfiles.
 ## Clone a Project with Submodules ##
 The shortcut:
 
-    git clone --recursive $URL
+`git clone --recursive $URL`
 
 The long way:
 ```
