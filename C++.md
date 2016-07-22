@@ -37,7 +37,8 @@ if the object is the same type as the class?
 
 ### Operator Overloading ###
 Rules of thumb for working with operator overloading functions.  Adapted from
-[learncpp.com]() section 9.4 "Overloading operators using member functions":
+[learncpp.com](http://www.learncpp.com) section 9.4 "Overloading operators using
+member functions":
 
 * If overloading assignment, subscript, function call, or member selection (=,
   [], (), or ->) do it with a member function.  (Required by the language.)
@@ -70,7 +71,7 @@ const int& IntList operator[](const int index) const;   // for const objects; re
 Return a reference so that values can be assigned to a selected element.  Don't
 use [] on a pointer to an object, because it will act like an array of objects.
 Dereference first.  Since deref has lower precedence, use parens like
-(*list)[2].
+`(*list)[2]`.
 
 Note that indexes don't need to be integers; consider the possibility of
 std::string.
