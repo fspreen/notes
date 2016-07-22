@@ -5,3 +5,4 @@
 
 ## Languages ##
 * [C](C.md)
+* [C++](C++.md)
