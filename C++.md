@@ -297,3 +297,25 @@ operator int() {...}
 ```
 Note lack of parameters and return type; assumption is that return value is of
 the correct type.
+
+#### Assignment Operator ####
+Similar to the copy constructor.  The copy constructor is called when a new
+object is needed for copying; the assignment operator is called if copying can
+take place without constructing a new object.
+
+By default C++ provides a basic copy constructor that does memberwise copying
+(similar to the default copy constructor).  This is effectively shallow copying
+and the two objects will point to the same memory block in the case of
+dynamically allocated member variables.
+
+In the case of self-assignment, return a reference to the original.  Otherwise,
+it is possible to run into issues when "copying" a dynamically allocated block
+of memory (e.g. if deleting the destination and then copying from the source).
+```
+Point3D& Point3D::operator= (const Point3D &source)
+{
+    if (this == &source) return *this;
+    
+    // ...
+}
+```
