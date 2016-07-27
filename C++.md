@@ -22,7 +22,14 @@ References are excellent for use in function parameters as an alternative to
 pointers for passing by reference.
 
 ## Classes ##
-### Sample Class ###
+### Prototypes ###
+If necessary, a class can be prototyped similar to function prototypes.
+However, the process is much simpler for classes:
+```
+class Point3D;
+```
+
+### Sample Classes ###
 sample1.cpp
 ```
 class Example1
@@ -216,6 +223,28 @@ ArrayObject::ArrayObject() : m_array {1, 2, 3, 4, 5} {}
 
 * [ ] Can a member initialization list work when the parameter name is the same
       as the member variable name?
+
+### Friend Functions ###
+A friend function can access private variables and methods as if it were part of
+the class.  They must be white-listed in the class definition:
+```
+friend void someFunction(Point3D &point);
+```
+
+Note that a function can be a friend of more than one class, as long as all
+classes list the function as a friend.  Since a friend function will need to
+have parameters of each class type, and one class will be defined before
+another, it is necessary to have a class prototype (as above).
+
+Class methods and entire classes can also be friends:
+```
+friend class MathSuite;
+friend Vector3D::normalize(Point3D &point);
+```
+
+However, prototypes are needed so that the compiler doesn't encounter an
+unexpected symbol.  The best recommendation is to put each class declaration in
+a separate header file and function bodies in source files.
 
 ### Const Objects ###
 Const objects cannot modify member variables after being constructed.  Const
