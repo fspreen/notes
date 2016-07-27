@@ -221,8 +221,11 @@ Point3D::Point3D(int a, int b, int c) : x {a}, y{b}, z{c} {}
 ArrayObject::ArrayObject() : m_array {1, 2, 3, 4, 5} {}
 ```
 
-* [ ] Can a member initialization list work when the parameter name is the same
-      as the member variable name?
+It is possible for member initialization lists to have the same name for
+parameters and member variables.  If a class variable is desired, use the `this`
+pointer instead (like `a(this->z)` or similar).
+
+Source variable/parameter names are evaluated in the scope of the constructor.
 
 ### Friend Functions ###
 A friend function can access private variables and methods as if it were part of
@@ -366,7 +369,7 @@ of memory (e.g. if deleting the destination and then copying from the source).
 Point3D& Point3D::operator= (const Point3D &source)
 {
     if (this == &source) return *this;
-    
+
     // ...
 }
 ```
