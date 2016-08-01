@@ -1,7 +1,7 @@
 # C++ Topics #
-* [Constructors](C++/Constructors.md)
-* [Inheritance](C++/Inheritance.md)
-* [Objects and Classes](C++/Objects and Classes.md)
-* [Operator Overloading](C++/Operator Overloading.md)
-* [References](C++/References.md)
-* [Sample Classes](C++/Sample Classes.md)
+* [Constructors](Constructors.md)
+* [Inheritance](Inheritance.md)
+* [Objects and Classes](Objects and Classes.md)
+* [Operator Overloading](Operator Overloading.md)
+* [References](References.md)
+* [Sample Classes](Sample Classes.md)
