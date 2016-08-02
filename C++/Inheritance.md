@@ -35,6 +35,12 @@ Derived(int a, int b) : Base(a), b(b) { }
 
 Destructors are called first for the derived class, then for the base class.
 
+## References and Pointers ##
+A reference or pointer can have the type of a base class but point to a derived
+object.  However, the reference/pointer can use only those methods or variables
+which are available to the base class.  One exception to this is
+[virtual functions](Virtual Functions.md).
+
 ## Multiple Inheritance ##
 Multiple base classes can be specified, as above.  If a method call or variable
 is ambiguous between more than one base class, it _must_ be specified with the

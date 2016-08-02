@@ -5,3 +5,4 @@
 * [Operator Overloading](Operator Overloading.md)
 * [References](References.md)
 * [Sample Classes](Sample Classes.md)
+* [Virtual Functions](Virtual Functions.md)

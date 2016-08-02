@@ -12,3 +12,4 @@
     * [Operator Overloading](C++/Operator Overloading.md)
     * [References](C++/References.md)
     * [Sample Classes](C++/Sample Classes.md)
+    * [Virtual Functions](C++/Virtual Functions.md)
