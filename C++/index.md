@@ -11,3 +11,4 @@
 * [learncpp.com](http://www.learncpp.com/)
 * [cppreference.com](http://en.cppreference.com/w/)
 * [C++ Core Guidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+* [cppsamples.com](http://www.cppsamples.com/)
