@@ -26,6 +26,32 @@ base class becomes an abstract base class and cannot be directly instantiated.
 (If a derived class does not override the pure virtual function, it becomes an
 abstract class in turn.)
 
+## Override and Final ##
+C++11 introduced two new function descriptors, `override` and `final`.  (These
+are not keywords, strictly speaking, as they can be used as identifier names
+elsewhere.)
+
+The `override` descriptor indicates that a function in a derived class must
+override a function in a base class.  (Otherwise, it is a compiler error.)
+Naturally, the function prototypes must match with the exception of the
+`virtual` keyword.
+```
+void foo() override;
+```
+
+The `final` descriptor indicates that a function must not be overridden by a
+derived class, or that an entire class is non-inheritable.  (Otherwise, the
+compiler will produce an error.)
+```
+virtual void foo() final;
+
+class A final
+{
+    //...
+};
+
+```
+
 ## Interfaces ##
 An interface is a class composed wholly of pure virtual functions and no member
 variables.  C++ has no special syntax for interfaces, unlike other languages
