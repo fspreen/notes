@@ -3,6 +3,7 @@
 * [Inheritance](Inheritance.md)
 * [Objects and Classes](Objects and Classes.md)
 * [Operator Overloading](Operator Overloading.md)
+* [Templates](Templates.md)
 * [References](References.md)
 * [Sample Classes](Sample Classes.md)
 * [Virtual Functions](Virtual Functions.md)
