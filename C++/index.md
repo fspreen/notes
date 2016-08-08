@@ -1,5 +1,6 @@
 # C++ Topics #
 * [Constructors](Constructors.md)
+* [Exceptions](Exceptions.md)
 * [Inheritance](Inheritance.md)
 * [Objects and Classes](Objects and Classes.md)
 * [Operator Overloading](Operator Overloading.md)
