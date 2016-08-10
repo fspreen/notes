@@ -7,6 +7,7 @@
 * [C](C.md)
 * [C++](C++/index.md)
     * [Constructors](C++/Constructors.md)
+    * [Default Methods](C++/Default Methods.md)
     * [Dynamic Memory](C++/Dynamic Memory.md)
     * [Exceptions](C++/Exceptions.md)
     * [Inheritance](C++/Inheritance.md)

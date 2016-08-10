@@ -1,5 +1,6 @@
 # C++ Topics #
 * [Constructors](Constructors.md)
+* [Default Methods](Default Methods.md)
 * [Dynamic Memory](Dynamic Memory.md)
 * [Exceptions](Exceptions.md)
 * [Inheritance](Inheritance.md)
