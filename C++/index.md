@@ -1,5 +1,6 @@
 # C++ Topics #
 * [Constructors](Constructors.md)
+* [Dynamic Memory](Dynamic Memory.md)
 * [Exceptions](Exceptions.md)
 * [Inheritance](Inheritance.md)
 * [Objects and Classes](Objects and Classes.md)
