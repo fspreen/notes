@@ -4,6 +4,7 @@
 * [Dynamic Memory](Dynamic Memory.md)
 * [Exceptions](Exceptions.md)
 * [Inheritance](Inheritance.md)
+* [Lambda Expressions](Lambda Expressions.md)
 * [Objects and Classes](Objects and Classes.md)
 * [Operator Overloading](Operator Overloading.md)
 * [Templates](Templates.md)
