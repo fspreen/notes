@@ -3,7 +3,7 @@
 ## Git ##
 * [Git Submodules](Git Submodules.md)
 
-## Languages ##
+# Languages #
 * [C](C.md)
 * [C++](C++/index.md)
     * [Constructors](C++/Constructors.md)
@@ -18,3 +18,6 @@
     * [References](C++/References.md)
     * [Sample Classes](C++/Sample Classes.md)
     * [Virtual Functions](C++/Virtual Functions.md)
+
+# Miscellaneous #
+* [Compose Key](Compose Key.md)
