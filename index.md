@@ -21,3 +21,4 @@
 
 # Miscellaneous #
 * [Compose Key](Compose Key.md)
+* [LaTeX](LaTeX.md)
