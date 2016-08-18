@@ -22,3 +22,4 @@
 # Miscellaneous #
 * [Compose Key](Compose Key.md)
 * [LaTeX](LaTeX.md)
+* [Offline Apt Packages](Offline Apt Packages.md)
