@@ -45,6 +45,14 @@ seen as function parameters.
 void printDate(const Date &date);
 ```
 
+### Mutable ###
+A member variable can be declared mutable, meaning that a const method can still
+modify it.  (This is good for caching, mutexes, and other uses.)  It works even
+if the object was originally declared const.
+```
+mutable bool cache_valid;
+```
+
 ## Static Members ##
 Static member variables are independent of instantiated objects.  Can be
 accessed from an object or direct from the class name:
