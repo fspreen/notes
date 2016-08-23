@@ -67,6 +67,5 @@ at the point of declaration, i.e. within the class definition.
 
 Static methods can be defined like regular methods.  Do not have a `this`
 pointer and can access only static member variables or static functions.
-
-* [ ] Can a static method access private member variables of an object it
-      creates if the object is the same type as the class?
+(However, a static method can access private member variables if it creates an
+object of the same type as its class.)
