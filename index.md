@@ -1,6 +1,7 @@
 # Utilities #
 
 ## Source Control ##
+* [Git](Git.md)
 * [Git Submodules](Git Submodules.md)
 * [Subversion](Subversion.md)
 
