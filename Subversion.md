@@ -29,3 +29,13 @@ svn log -v -rX ^/
 Lists files with `-v`.  Revision number X specified with `-r`.  Path `^/`
 indicates the root level of the repository, regardless of local command
 invocation environment.
+
+## File Changes by Commit ##
+```
+svn log -rX:Y --diff path/to/file.c
+```
+Show changes to a specific file during the specified commit range.  This will
+include commit messages, usernames, etc. as well as specific changes thanks to
+the `--diff` option.  Note that only changes to the specified file will be
+listed, not all changes in the commits.  Similarly, only relevant commits will
+be listed.
