@@ -1,73 +1,133 @@
 # Git Submodules #
 
-Submodules are a way to include another project in a subdirectory.  They are
-somewhat tricky to work with.  I can never remember the commands, so this is
-a handy reference since I'm using them for Vim plugins in my dotfiles.
+Submodules are a way to include another repository in a subdirectory of a parent
+repository.  They are somewhat tricky to work with, so I'm writing this handy
+reference to help me use them for Vim plugins in my dotfiles repository.
 
-## Clone a Project with Submodules ##
-The shortcut:
+There are three important concepts to remember:
 
-`git clone --recursive $URL`
+* Submodules must be "set up" by the parent repository before use in a
+  workspace.
+* Submodule Git settings are stored in the parent repository's `.git/` folder,
+  rather than in the submodule's folder.
+* A submodule's `HEAD` matches the parent repo's expectation, and is often
+  detached.  Changing the `HEAD` changes the parent repository.
 
-The long way:
+## Quick Reference ##
+
+### Workspace Setup ###
+Cloning a repository with submodules can be done in different ways, depending on
+whether configuration changes need to be made for each step.  In short:
+```
+git clone --recursive $URL
+```
+
+A recursive clone sets up everything from a standing start.  It assumes that the
+upstream URLs in `.gitmodules` are reachable and that default configuration
+choices are acceptable.
 ```
 git clone $URL
+cd $DIR
 git submodule init
 git submodule update
 ```
-## Add a Submodule ##
+
+The `clone` step retrieves the parent repository as expected.  The `init` step
+sets up the submodule configuration, and the `update` step populates the
+submodule directories.  The `init` and `update` steps can be combined with the
+command `git submodule update --init` if needed.  The multi-step approach is
+best if configurations need to be changed, e.g. changing `.gitmodules` to use a
+different URL.
+
+### Checking Status ###
+The command `git submodule status` will display the commit and a `git describe`
+tag for each submodule.  The commit ID will be prefixed with `-` if the
+submodule has not been initialized and `+` if there are uncommitted changes.
+The prefix `U` indicates a merge conflict.
+
+### Adding a Submodule ###
 Move to the directory and execute:
-
-`git submodule add $URL`
-
-Remember to commit the .gitmodules file which stores the URL.
-
-## Update a Submodule ##
-### Making a Change to Push ###
-Move to the submodule directory and execute:
 ```
-git fetch
-git merge origin/master
+git submodule add $URL
 ```
-Alternatively:
 
-`git submodule update --remote $MODULE_NAME`
+Note that this will create a new folder similar to a basic clone operation.
+Alternatively, add the submodule to a different folder:
+```
+git submodule add $URL path/to/rename
+```
 
-All submodules that need updating:
+The path will also function as the submodule's name unless the `--name` option
+is used.  Names specified should be usable directory names, due to the internals
+of the `.git/` folder.
 
-`git submodule update --remote`
+Remember to commit the `.gitmodules` file and the new submodule after adding.
 
-### Retrieving a Change with Pull ###
-The typical `git pull` or fetch+merge action will update the master branch
-for each submodule.
+### Updating a Submodule ###
+Moving the `HEAD` pointer in a submodule in any way will be treated as a change
+by the parent repository.  This will be reflected in `git status` messages as
+well as items that can be staged, committed, and pushed.
 
-If you try `git submodule update` after a `git pull` you will wind up with
-detached heads!  Do this instead:
+The `HEAD` pointer can be reset or brought up-to-date with the parent
+repository's expectations with the command `git submodule update` which by
+default performs the `--checkout` action.
 
-`git submodule update --merge`
+The `HEAD` can also be moved to the commit matching the submodule's upstream
+`origin/master` with the command:
+```
+git submodule update --remote
+```
 
-This is equivalent to a `git pull` within the submodule (i.e. fetch+merge)
-which should be okay as long as there haven't been any local changes in there.
+The branch name can be changed with a configuration option; consult the manual
+for details.
 
-Note that the above command won't work if the heads have already been detached.
-Fix detached heads with:
+* [ ] What submodule command moves the local `master` branch to `origin/master`?
 
-`git submodule foreach git checkout master`
+### Changing a URL ###
+If a submodule's repository changes its upstream URL, these changes should be
+recorded in the parent repository and workspace.  First, modify the
+`.gitmodules` file with the new information.  Then synchronize the change with
+the Git configuration:
+```
+git submodule sync
+```
 
-Then follow this up with the merging submodule update as above.
+This will also update the appropriate remotes in the local copy of the
+submodule's repository.  Remember to commit the change to `.gitmodules` when
+complete.
 
-## Change a Submodule URL ##
-Edit the .gitmodules file to update the new URL.  (This file was created when
-the submodule was added.)  Then synchronize the change with the Git
-configuration:
+## Internals and Theory ##
+The parent repository needs a minimal amount of information about each
+submodule.  The necessary information is:
 
-`git submodule sync`
+* upstream URL
+* commit ID desired by the parent
+* directory path to hold the submodule in the parent
+* name of submodule (default: same as path)
 
-By default, this updates all submodules; consult the official Git
-documentation for information on limiting this.
+In a minimal context (e.g. on a server like GitHub), the upstream URL, path, and
+name are stored in the `.gitmodules` file in the parent repository.  This file
+is subject to revision control the same as `.gitignore` or any other file.  The
+commit ID is stored elsewhere in the Git internals.
 
-It also appears to update the appropriate remotes in the local copy of the
-submodule's repository.  (That is, if you move to the submodule's directory
-and execute `git remote -v` it will show the new URL.)
+* [ ] Where and how is the commit ID stored?
 
-Remember to commit the change to .gitmodules when things are satisfactory.
+A submodule must be initialized, which copies settings from `.gitmodules` into
+the appropriate Git files for use.  Some of these settings are copied to
+`.git/config` in the parent repository.  When the submodule is fully set up, the
+submodule's Git settings (branches, remotes, etc.) are stored under
+`.git/modules/` in the parent repository.  Rather than having `.git/` folders of
+their own, the submodules have files containing pointers back to the parent
+repository.
+
+If the `.gitmodules` file is changed, the alterations should be resynchronized
+to the Git internal structures.  This is done using `git submodule sync`.
+
+Altering the `HEAD` in a submodule by any means will appear in the parent
+repository as a potential change to be committed.  Because of this, submodules
+can be expected to have a detached `HEAD` as part of normal operations.
+
+When invoking `git submodule update` the submodule's `HEAD` will be set to the
+commit recorded in the parent repository.  Git data structures for the submodule
+will be retrieved from upstream as necessary, using the URLs set in
+`.git/config` from the `.gitmodules` file.
