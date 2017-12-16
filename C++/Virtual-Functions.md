@@ -7,7 +7,7 @@ function.
 With a virtual function, a pointer to a base object can still call the derived
 function.  The base object needs to declare the original function with the
 keyword `virtual` like so:
-```
+```cpp
 virtual int calcNumbers(int x, int y);
 ```
 
@@ -17,7 +17,7 @@ from the derived class can also make use of the chain.)
 
 ## Pure Virtual Function ##
 Instead of defining a function body, assign the function the value 0:
-```
+```cpp
 virtual int getValue() = 0;
 ```
 
@@ -35,14 +35,14 @@ The `override` descriptor indicates that a function in a derived class must
 override a function in a base class.  (Otherwise, it is a compiler error.)
 Naturally, the function prototypes must match with the exception of the
 `virtual` keyword.
-```
+```cpp
 void foo() override;
 ```
 
 The `final` descriptor indicates that a function must not be overridden by a
 derived class, or that an entire class is non-inheritable.  (Otherwise, the
 compiler will produce an error.)
-```
+```cpp
 virtual void foo() final;
 
 class A final
@@ -86,7 +86,7 @@ Don't.  Apparently it's more trouble than it's worth.
 
 ## Suppressing a Virtual Function Call ##
 Not all that useful, but good to know:
-```
+```cpp
 Base &rBase = cDerived;
 rBase.Base::BaseMethod();
 ```

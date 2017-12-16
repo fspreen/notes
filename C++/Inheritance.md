@@ -1,6 +1,6 @@
 # Inheritance #
 Parent classes are specified in the definition of a class structure:
-```
+```cpp
 class Derived : public Base
 {
     // ...
@@ -29,7 +29,7 @@ Construction/initialization happens first with the base class, followed by the
 derived class.  If not specified, the default constructor of the base class is
 called (i.e. the constructor with zero mandatory parameters).  It is possible to
 call a different base class constructor similar to member initialization lists:
-```
+```cpp
 Derived(int a, int b) : Base(a), b(b) { }
 ```
 
@@ -45,7 +45,7 @@ which are available to the base class.  One exception to this is
 Multiple base classes can be specified, as above.  If a method call or variable
 is ambiguous between more than one base class, it _must_ be specified with the
 base class name and the scope resolution operator:
-```
+```cpp
 int main()
 {
     Derived item;

@@ -3,7 +3,7 @@ Templates allow the creation of functions and classes without having to specify
 certain type values.  This allows code to be written once that can be used with
 many different types.  (An example is a function that adds two numerics:
 integers, floating points, etc. or container classes.)
-```
+```cpp
 template <typename T>
 T max(T x, T y)
 {
@@ -37,14 +37,14 @@ to either `#include` the .cpp file as well, or to `#include` both header and
 .cpp file in a third file that manually instantiates each needed template.
 
 Specific instances of template classes can be explicitly forced:
-```
+```cpp
 template class SomeClass<int>;
 ```
 
 ### Expression Parameters ###
 Not available for functions, only classes.  Allows for substitution of a value,
 rather than a type.  Example:
-```
+```cpp
 template <typename T, int nSize>
 class Buffer
 {
@@ -62,7 +62,7 @@ int main()
 ## Specialization ##
 If a specific type needs a different implementation, this can be defined with
 specialization.  Code is in addition to the template:
-```
+```cpp
 template <>
 void ExampleClass<double>::function(<double> t)
 {
@@ -79,7 +79,7 @@ templates anyway?)
 In some cases, it is necessary to have specialization where some of the template
 parameters are still unspecified.  In this case, mix the template types and/or
 parameters with specified instances:
-```
+```cpp
 template <int nSize>
 void printBuffer(Buffer<char, nSize> &buffer)
 {
@@ -91,7 +91,7 @@ void printBuffer(Buffer<char, nSize> &buffer)
 Because copying pointers is different from copying basic values, it's useful to
 have a partially specialized template for pointer values.  This is achieved very
 simply:
-```
+```cpp
 template <typename T>
 class Storage<T*>
 {

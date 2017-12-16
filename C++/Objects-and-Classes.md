@@ -2,14 +2,14 @@
 ## Prototypes ##
 If necessary, a class can be prototyped similar to function prototypes.
 However, the process is much simpler for classes:
-```
+```cpp
 class Point3D;
 ```
 
 ## Friend Functions ##
 A friend function can access private variables and methods as if it were part of
 the class.  They must be white-listed in the class definition:
-```
+```cpp
 friend void someFunction(Point3D &point);
 ```
 
@@ -19,7 +19,7 @@ have parameters of each class type, and one class will be defined before
 another, it is necessary to have a class prototype (as above).
 
 Class methods and entire classes can also be friends:
-```
+```cpp
 friend class MathSuite;
 friend Vector3D::normalize(Point3D &point);
 ```
@@ -35,13 +35,13 @@ objects can call only const member functions.
 Const member functions will not/cannot change member variables.  (A compiler
 error will result otherwise.)  The `const` is considered part of the function's
 signature for overloading purposes.
-```
+```cpp
 int getValue() const;
 int getValue() const { return this-> value; }
 ```
 Const references treat an object as a const object, similar to above.  Often
 seen as function parameters.
-```
+```cpp
 void printDate(const Date &date);
 ```
 
@@ -49,14 +49,14 @@ void printDate(const Date &date);
 A member variable can be declared mutable, meaning that a const method can still
 modify it.  (This is good for caching, mutexes, and other uses.)  It works even
 if the object was originally declared const.
-```
+```cpp
 mutable bool cache_valid;
 ```
 
 ## Static Members ##
 Static member variables are independent of instantiated objects.  Can be
 accessed from an object or direct from the class name:
-```
+```cpp
 MathSuite math1;
 math1.pi;
 MathSuite::pi;

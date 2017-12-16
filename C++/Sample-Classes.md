@@ -1,6 +1,6 @@
 # Sample Classes #
 sample1.cpp
-```
+```cpp
 class Example1
 {
 // member vars are private by default, but this is an example
@@ -45,7 +45,7 @@ Example1::static_val = 5;
 ```
 
 sample2.h
-```
+```cpp
 #IFNDEF SAMPLE2_H
 #DEFINE SAMPLE2_H
 class Example2
@@ -66,7 +66,7 @@ private:
 ```
 
 sample2.cpp
-```
+```cpp
 #include "sample2.h"
 
 Example2::Example2(int x, int y, int z)

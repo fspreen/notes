@@ -16,7 +16,7 @@ member functions":
 ## Increment/Decrement ##
 Prefix and postfix operator overloads can be distinguished by the presence of a
 dummy integer parameter:
-```
+```cpp
 Example& Example::operator++();     // prefix
 Example Example::operator++(int);   // postfix
 ```
@@ -27,8 +27,8 @@ be destroyed as soon as the functions ends.)
 
 ## Subscript ##
 Overload the [] operator with a function like:
-```
-int& IntList operator[] const int index);   // for non-const objects, and assignment
+```cpp
+int& IntList operator[](const int index);   // for non-const objects, and assignment
 const int& IntList operator[](const int index) const;   // for const objects; read-only
 ```
 Return a reference so that values can be assigned to a selected element.  Don't
@@ -45,7 +45,7 @@ around in memory, e.g. when copying for a resize.
 ## Parenthesis ##
 Allows for more "freeform" definition of parameter count and types.  Called when
 the object is called like a function (syntactically speaking):
-```
+```cpp
 Matrix matrix;
 matrix(1,2) = 4.5;  // should return double& in this instance
 ```
@@ -60,7 +60,7 @@ Functors are useful for callbacks.
 Kinda weird that this is possible, actually.  Allows the class to control how it
 is typecast to another type.  Not limited to built-in types!  Example for
 casting to an int:
-```
+```cpp
 operator int() {...}
 ```
 Note lack of parameters and return type; assumption is that return value is of
@@ -79,7 +79,7 @@ dynamically allocated member variables.
 In the case of self-assignment, return a reference to the original.  Otherwise,
 it is possible to run into issues when "copying" a dynamically allocated block
 of memory (e.g. if deleting the destination and then copying from the source).
-```
+```cpp
 Point3D& Point3D::operator= (const Point3D &source)
 {
     if (this == &source) return *this;

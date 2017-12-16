@@ -1,6 +1,6 @@
 # Exceptions #
 C++ has exceptions for error handling, similar to Java.  The basic syntax:
-```
+```cpp
 try
 {
     throw -1;
@@ -42,7 +42,7 @@ needed from the thrown object.
 The catch-all handler matches everything.  Its syntax is seen in the above
 example.  The `catch` statement with three dots matches any thrown object and
 allows for "all else fails" type scenarios to be handled.  The example again:
-```
+```cpp
 catch(...)
 {
     std::cerr << "Some error occurred." << std::endl;
@@ -64,7 +64,7 @@ don't use it.
 
 A function prototype or definition may specify if a function throws certain
 exceptions.  Examples:
-```
+```cpp
 int something() throw();            // does not throw exceptions
 int something() throw(double);      // may throw a double
 int something() throw(...);         // may throw anything
