@@ -8,7 +8,7 @@
 * [Forwarding Types](#forwarding-types)
   * [Local](#local)
   * [Dynamic](#dynamic)
-  * [Remote/Reverse](#remote-reverse)
+  * [Remote/Reverse](#remotereverse)
   * [Tunnel](#tunnel)
 
 SSH allows the forwarding or tunneling of network traffic alongside an existing
@@ -70,7 +70,7 @@ To list forwarded connections, use:  `~#`
 
 To add or remove forwards of various types, use `~C` to open a command prompt
 for the SSH client.  Commands available are `-h` to list available commands;
-`-L, -D, -R` to add the specified forwarding types, and `-KL, -KD, -KR` to
+`-L, -D, -R` to add the specified forwarding types; and `-KL, -KD, -KR` to
 remove a forwarding entry.
 
 ## PuTTY ##
