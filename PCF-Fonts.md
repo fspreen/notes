@@ -31,3 +31,13 @@ files:
 ```
 fc-list | grep -i term
 ```
+
+### Ubuntu ###
+(incomplete)
+
+Configure and install the font:
+```
+./configure --x11dir=/usr/share/fonts/X11/misc/
+make pcf
+sudo make install-pcf
+```
