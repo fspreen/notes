@@ -28,7 +28,10 @@ following terms:
 * **remote** - third host involved, typically the forwarding destination
 * **$cport, $sport, $rport** - client/server/remote port numbers
 
-* [ ] Where does the remote host name resolve to IP?  Client side?  Server side?
+## Name Resolution ##
+For a local forward, the remote name is resolved by the server.
+
+* [ ] Where do other forwarding types resolve to IP?  Client side?  Server side?
 
 ## OpenSSH ##
 Syntax and specific examples of forwarding arrangements.
