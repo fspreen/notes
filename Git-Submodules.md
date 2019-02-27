@@ -96,6 +96,22 @@ This will also update the appropriate remotes in the local copy of the
 submodule's repository.  Remember to commit the change to `.gitmodules` when
 complete.
 
+### Removing a Submodule ###
+A submodule must be removed in two steps.  First, the submodule must be
+de-initialized.  Then, the file tree itself should be removed:
+```
+git deinit $submodule
+git rm $module_path
+```
+
+The appropriate changes will be staged.  Remember to add and commit the change
+to `.gitmodules` as well.
+
+Git will retain information at `.git/modules/$submodule` in order to support
+revision history without having to reference the submodule's origin location.
+If this isn't needed, the folder can be deleted with the usual filesystem
+operations.
+
 ## Internals and Theory ##
 The parent repository needs a minimal amount of information about each
 submodule.  The necessary information is:
