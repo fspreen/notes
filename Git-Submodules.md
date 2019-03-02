@@ -112,6 +112,13 @@ revision history without having to reference the submodule's origin location.
 If this isn't needed, the folder can be deleted with the usual filesystem
 operations.
 
+If a clone of the repository pulls down a commit that removes a submodule, the
+submodule file tree will not be removed even if the commit is merged.  The file
+tree will need to be removed manually.  For example, in my dotfiles repository,
+I changed my Vim plugins by replacing Syntastic with ALE.  When I pulled down
+the changes on another computer and updated the submodules, I still had the
+Syntastic folder and files present.
+
 ## Internals and Theory ##
 The parent repository needs a minimal amount of information about each
 submodule.  The necessary information is:
