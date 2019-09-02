@@ -72,7 +72,7 @@ internal network is in the block 172.16.0.0/24.
 NOTE:  The `nat` table is used here.
 
 ```
--t nat -A POSTROUTING -o eth0 -s 12.16.0.0/24 -j MASQUERADE
+-t nat -A POSTROUTING -o eth0 -s 172.16.0.0/24 -j MASQUERADE
 -A OUTPUT -o lo -j ACCEPT
 -A FORWARD -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT
 -A FORWARD -o eth0 -j ACCEPT
@@ -90,6 +90,8 @@ will enable the change after a reboot:
 ```
 net.ipv4.ip_forward=1
 ```
+
+[ ] What about IPv6?
 
 ### Port Forwarding ###
 The following lines can be added to the NAT example above and demonstrate

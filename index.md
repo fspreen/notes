@@ -24,9 +24,12 @@
 * [Python](Python/index.md)
     * [Virtual Environments](Python/Virtual-Environments.md)
 
+# Networking #
+* [iptables](iptables.md) (deprecated)
+* [nftables](nftables.md)
+
 # Miscellaneous #
 * [Compose Key](Compose-Key.md)
-* [iptables](iptables.md)
 * [LaTeX](LaTeX.md)
 * [Offline Apt Packages](Offline-Apt-Packages.md)
 * [PCF Fonts](PCF-Fonts.md)
