@@ -2,6 +2,19 @@
 
 * [Virtual Environments](Virtual-Environments.md)
 
+## Snippets
+
+### Properties
+Most objects automatically have a `__dict__` property which contains all the
+properties of the object as a dictionary.  This is useful for introspection and
+debugging, but not all objects have `__dict__`.  Notably, classes that make use
+of `__slots__` do not have a `__dict__`.  The following snippet makes use of the
+built-ins `dir()` and `getattr()` to produce a `__dict__` like structure:
+
+```python
+props=lambda x: {k:getattr(x,k,None) for k in dir(x) if not callable(getattr(x,k,lambda z:z)) and k!='__slots__' and k!='__dict__'}
+```
+
 ## 2 and 3 Compatibility
 
 ### Input Functions
