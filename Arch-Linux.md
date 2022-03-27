@@ -50,3 +50,16 @@ enabled:
 * `systemctl enable paccache.timer` (cleans package cache in
   `/var/cache/pacman/pkg/`)
 * `systemctl enable fstrim.timer` (applies trim periodically if using SSD)
+
+## ST Terminal
+To build the [ST terminal](https://st.suckless.org/) as of 0.8.5, install the
+following packages:
+* `gcc`
+* `make`
+* `pkgconf`
+* `xorg-fonts-misc`
+
+It would be best to also install the selected font system-wide.  Place the files
+in appropriately-named folders under `/usr/local/share/fonts/` according to
+Arch's manual font installation
+[instructions](https://wiki.archlinux.org/title/Fonts#Manual_installation).
