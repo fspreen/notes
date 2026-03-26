@@ -100,7 +100,7 @@ complete.
 A submodule must be removed in two steps.  First, the submodule must be
 de-initialized.  Then, the file tree itself should be removed:
 ```
-git deinit $submodule
+git submodule deinit $submodule
 git rm $module_path
 ```
 
